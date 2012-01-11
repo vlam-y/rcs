@@ -26,3 +26,30 @@
 (require 'lacarte)
 (global-set-key [?\e ?\M-x] 'lacarte-execute-command)
 (global-set-key [?\M-`] 'lacarte-execute-command)
+
+;;Modifs affichages
+(custom-set-variables
+;; ne pas afficher l'ecran d'accueil
+'(inhibit-startup-screen t)
+;; ne pas afficher la barre d'outils en haut
+'(tool-bar-mode nil nil (tool-bar))
+)
+
+;; ne pas afficher la barre de scrolling
+(set-scroll-bar-mode nil)
+
+;; afficher la date au format 24h
+(setq display-time-24hr-format t)
+(display-time)
+
+;; Afficher les numeros de colonnes et des lignes
+(column-number-mode t)
+(line-number-mode t)
+
+;; Afficher le nom du fichier dans la barre de titre de la fenetre
+(setq frame-title-format '(buffer-file-name "%b [%f]" "%b"))
+
+;; Conserver les fichiers backups (nom du fichier suivi d'un ~) dans le
+;; repertoire indique (ici ~/.emacsbackups)
+(defvar backup-dir "~/.emacsbackups/")
+(setq backup-directory-alist (list (cons "." backup-dir)))
